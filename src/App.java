@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 
+import dominio.Conteudo;
 import dominio.Curso;
 import dominio.Mentoria;
 
@@ -19,6 +20,8 @@ public class App {
         mentoria.setTitulo("Mentoria de Java");
         mentoria.setDescricao("Descrição da mentoria de Java");
         mentoria.setData(LocalDate.now());
+
+        Conteudo curso = new Curso();
 
         System.out.println(curso1);
         System.out.println(curso2);
