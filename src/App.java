@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
-import dominio.Conteudo;
+import dominio.Bootcamp;
 import dominio.Curso;
+import dominio.Dev;
 import dominio.Mentoria;
 
 public class App {
@@ -21,10 +22,33 @@ public class App {
         mentoria.setDescricao("Descrição da mentoria de Java");
         mentoria.setData(LocalDate.now());
 
-        Conteudo curso = new Curso();
+        // System.out.println(curso1);
+        // System.out.println(curso2);
+        // System.out.println(mentoria);
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Java developer");
+        bootcamp.setDescricao("Descrição do bootcamp.");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev leonardo = new Dev();
+        leonardo.setNome("leonardo");
+        leonardo.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos inscritos Leonardo: " + leonardo.getConteudosInscritos());
+        leonardo.progredir();
+        System.out.println("Conteúdos inscritos Leonardo depois de progredir: " + leonardo.getConteudosInscritos());
+        System.out.println("Conteúdos concluídos Leonardo: " + leonardo.getConteudosConcluidos());
+        System.out.println("XP Leonardo: " + leonardo.calcularTotalXP());
+
+        Dev joao= new Dev();
+        joao.setNome("João");
+        joao.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos inscritos João: " + joao.getConteudosInscritos());
+        leonardo.progredir();
+        System.out.println("Conteúdos inscritos João depois de progredir: " + joao.getConteudosInscritos());
+        System.out.println("Conteúdos concluídos João: " + joao.getConteudosConcluidos());
+        System.out.println("XP João: " + joao.calcularTotalXP());
     }
 }
